@@ -21,8 +21,8 @@ import openfl.Lib;
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.7.3'; //This is also used for Discord RPC
-	public static var novaFlareEngineDataVersion:Float = 2.2;
-	public static var novaFlareEngineVersion:String = '1.1.7';
+	public static var novaFlareEngineDataVersion:Float = 2.0;
+	public static var novaFlareEngineVersion:String = '1.1.6';
 	public static var curSelected:Int = 0;
     public static var saveCurSelected:Int = 0;
     
@@ -47,6 +47,7 @@ class MainMenuState extends MusicBeatState
 
 	var magenta:FlxSprite;
 	var logoBl:FlxSprite;
+	var MenuThing:FlxSprite;
 	
     //var musicDisplay:SpectogramSprite;
 	
@@ -134,6 +135,10 @@ class MainMenuState extends MusicBeatState
 		logoBl.x = 1280 + 320 - logoBl.width / 2;
 		logoBl.y = 360 - logoBl.height / 2;
 		logoTween = FlxTween.tween(logoBl, {x: 1280 - 320 - logoBl.width / 2 }, 0.6, {ease: FlxEase.backInOut});
+		
+  MenuThing = new FlxSprite(0, 0);
+  MenuThing.frames = Paths.getSparrowAtlas('Vexter');
+  add(MenuThing);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -452,9 +457,6 @@ class MainMenuState extends MusicBeatState
 							case 'credits':
 								MusicBeatState.switchState(new CreditsState());
 							case 'options':
-								if(ClientPrefs.data.optionMusic != 'None'){
-									FlxG.sound.playMusic(Paths.music('Options Screen/' + ClientPrefs.data.optionMusic), 0);
-								}
 								MusicBeatState.switchState(new OptionsState());
 								//OptionsState.onPlayState = false;
 								if (PlayState.SONG != null)

@@ -136,9 +136,11 @@ class MainMenuState extends MusicBeatState
 		logoBl.y = 360 - logoBl.height / 2;
 		logoTween = FlxTween.tween(logoBl, {x: 1280 - 320 - logoBl.width / 2 }, 0.6, {ease: FlxEase.backInOut});
 		
-  MenuThing = new FlxSprite(0, 0);
-  MenuThing.frames = Paths.getSparrowAtlas('Vexter');
-  add(MenuThing);
+    var MenuThing:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG', null, false));
+		MenuThing.scrollFactor.set(0, 0);
+		MenuThing.updateHitbox();
+		MenuThing.antialiasing = ClientPrefs.data.antialiasing;
+		add(MenuThing);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);

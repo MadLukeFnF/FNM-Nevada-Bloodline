@@ -66,7 +66,6 @@ class LoadingState extends MusicBeatState
     var filePath:String = 'menuExtend/LoadingState/';
     
 	var bar:FlxSprite;
-	var OMG:FlxSprite;
     var button:LoadButton;
     var barHeight:Int = 10;
     
@@ -81,11 +80,12 @@ class LoadingState extends MusicBeatState
 		
 		Paths.clearStoredMemory();
 
-		var bg = new FlxSprite().loadGraphic(Paths.image(filePath + 'loadScreen'));
+		var bg = new FlxSprite().loadGraphic(Paths.image(filePath + 'loadScreen' + FlxG.random.int(1, 3)));
 		bg.setGraphicSize(Std.int(FlxG.width));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.updateHitbox();
-		add(bg);			
+		add(bg);	
+
 
 		var bg:FlxSprite = new FlxSprite(0, FlxG.height - barHeight).makeGraphic(1, 1, FlxColor.BLACK);
 		bg.scale.set(FlxG.width, barHeight);
@@ -101,22 +101,12 @@ class LoadingState extends MusicBeatState
 		add(bar);		
 		
 		button = new LoadButton(0, 0, 35, barHeight);
-                button.y = FlxG.height - button.height;
-                button.antialiasing = ClientPrefs.data.antialiasing;
-                button.updateHitbox();
-                add(button);
-                /*
-		var OMG = new FlxSprite().loadGraphic(Paths.image('egg'));
-		OMG.antialiasing = ClientPrefs.data.antialiasing;
-		OMG.alpha = 0;
-		OMG.scale.x = 0.1;
-		OMG.scale.y = 0.1;
-		OMG.x = 520;
-		OMG.y = 500;
-		OMG.updateHitbox();
-		add(OMG);
-                */
-                precentText = new FlxText(520, 600, 400, '0%', 30);
+        button.y = FlxG.height - button.height;
+        button.antialiasing = ClientPrefs.data.antialiasing;
+        button.updateHitbox();
+        add(button);
+        
+        precentText = new FlxText(520, 600, 400, '0%', 30);
 		precentText.setFormat(Paths.font("loadScreen.ttf"), 25, FlxColor.WHITE, RIGHT, OUTLINE_FAST, FlxColor.TRANSPARENT);
 		precentText.borderSize = 0;
 		precentText.antialiasing = ClientPrefs.data.antialiasing;
@@ -150,7 +140,8 @@ class LoadingState extends MusicBeatState
 			if (precent % 1 == 0) precentText.text = precent + '.00%';
 			else if ((precent * 10) % 1 == 0) precentText.text = precent + '0%';									
 			else precentText.text = precent + '%'; //修复显示问题
-		};
+		}
+		
 		if (!transitioning)
 		{
 			if (!finishedLoading && checkLoaded() && curPercent == 1)
@@ -677,10 +668,11 @@ class LoadingState extends MusicBeatState
 	    var noteData:Array<SwagSection> =  PlayState.SONG.notes;	
 		
 		Thread.create(() -> {
-			//chartMutex.acquire();  
+			chartMutex.acquire();  
     	    	
 			for (section in noteData)
-			{								
+			{
+												
 				for (songNotes in section.sectionNotes)
 				{
 					var daStrumTime:Float = songNotes[0];
@@ -721,7 +713,7 @@ class LoadingState extends MusicBeatState
 							oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
 			
 							var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote), daNoteData, oldNote, true, LoadingState);
-							sustainNote.hitMultUpdate(susNote, floorSus);     
+							sustainNote.hitMultUpdate(susNote, floorSus + 1);     
 							sustainNote.mustPress = gottaHitNote;
 							sustainNote.gfNote = (section.gfSection && (songNotes[1]<4));
 							sustainNote.noteType = swagNote.noteType;
@@ -781,7 +773,7 @@ class LoadingState extends MusicBeatState
 
 			Note.defaultNoteSkin = 'noteSkins/NOTE_assets';
 			addLoad();
-			//chartMutex.release();                  
+			chartMutex.release();                  
         });
 	}
 	

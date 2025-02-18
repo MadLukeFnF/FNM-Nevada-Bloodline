@@ -125,7 +125,7 @@ import states.TitleState;
 	public var audioDisplayUpdate:Int = 50;
 	public var freeplayOld:Bool = false;
 	public var resultsScreen:Bool = true;
-	public var loadingScreen:Bool = false;
+	public var loadingScreen:Bool = true;
 
 	//Watermark
 	public var showFPS:Bool = true;

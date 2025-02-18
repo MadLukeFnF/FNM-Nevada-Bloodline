@@ -21,7 +21,7 @@ import states.TitleState;
 
 	//Gameplay
 	public var downScroll:Bool = false;
-	public var middleScroll:Bool = false;
+	public var middleScroll:Bool = true;
 	public var flipChart:Bool = false;
 	public var ghostTapping:Bool = true;
 	public var guitarHeroSustains:Bool = true;
@@ -60,7 +60,7 @@ import states.TitleState;
 	//App backend s
 	public var discordRPC:Bool = true;
 	public var checkForUpdates:Bool = true;
-	public var fileLoad:String = 'NovaFlare Engine';
+	public var fileLoad:String = 'FNM Nevada Bloodline';
 	public var openedFlash:Bool = false;
 	public var screensaver:Bool = false;
 	public var filesCheck:Bool = false;  //还不如就别自动复制了
@@ -72,7 +72,7 @@ import states.TitleState;
 	public var showRating:Bool = true;	
 	public var opponentStrums:Bool = true;
 	public var judgementCounter:Bool = false;
-	public var keyboardDisplay:Bool = true;
+	public var keyboardDisplay:Bool = false;
 	// TimeBar s
 	public var timeBarType:String = 'Time Left';
 	//HealthBar s
@@ -93,7 +93,7 @@ import states.TitleState;
 	public var scoreZoom:Bool = true;
 	
 	//Skin
-	public var noteSkin:String = 'Default';
+	public var noteSkin:String = 'Future';
 	public var noteRGB:Bool = true;
 	//splash s
 	public var splashSkin:String = 'Psych';
@@ -110,7 +110,7 @@ import states.TitleState;
 	public var playControlsAlpha:Float = 0.2;
 	public var hideHitboxHints:Bool = false;
 
-	public var extraKey:Int = 4;
+	public var extraKey:Int = 1;
 	public var extraKeyReturn1:String = 'SPACE';
 	public var extraKeyReturn2:String = 'SPACE';
 	public var extraKeyReturn3:String = 'SHIFT';
@@ -134,7 +134,7 @@ import states.TitleState;
 	public var memoryType:Int = 0;	
 	public var FPSScale:Float = 1;
 	public var WatermarkScale:Float = 1;
-	public var showWatermark:Bool = true;	
+	public var showWatermark:Bool = false;	
 
 	public var comboOffset:Array<Int> = [0, 0, 0, 0, 530, 470];
 

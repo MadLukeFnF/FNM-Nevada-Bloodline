@@ -33,20 +33,18 @@ class MainMenuState extends MusicBeatState
 	var optionTween:Array<FlxTween> = [];
 	var selectedTween:Array<FlxTween> = [];
 	var cameraTween:Array<FlxTween> = [];
-	var logoTween:FlxTween;
 	
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
-		#if ACHIEVEMENTS_ALLOWED 'awards', #end
+	/*	#if MODS_ALLOWED 'mods', #end
+		#if ACHIEVEMENTS_ALLOWED 'awards', #end*/
 		'credits',
 		//#if !switch 'donate', #end
 		'options'
 	];
 
 	var magenta:FlxSprite;
-	var logoBl:FlxSprite;
 	var MenuThing:FlxSprite;
 	
     //var musicDisplay:SpectogramSprite;
@@ -119,28 +117,14 @@ class MainMenuState extends MusicBeatState
 		test.alpha = 0.7;
 
 		bg.scrollFactor.set(0, 0);
-					
-		logoBl = new FlxSprite(0, 0);
-		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
-		logoBl.antialiasing = ClientPrefs.data.antialiasing;
-		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
-		logoBl.animation.play('bump');
-		logoBl.offset.x = 0;
-		logoBl.offset.y = 0;
-		logoBl.scale.x = (640 / logoBl.frameWidth);
-		logoBl.scale.y = logoBl.scale.x;
-		logoBl.updateHitbox();
-		add(logoBl);
-		logoBl.scrollFactor.set(0, 0);
-		logoBl.x = 1280 + 320 - logoBl.width / 2;
-		logoBl.y = 360 - logoBl.height / 2;
-		logoTween = FlxTween.tween(logoBl, {x: 1280 - 320 - logoBl.width / 2 }, 0.6, {ease: FlxEase.backInOut});
 		
     var MenuThing:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('Vexter', null, false));
 		MenuThing.scrollFactor.set(0, 0);
 		MenuThing.updateHitbox();
 		MenuThing.antialiasing = ClientPrefs.data.antialiasing;
 		add(MenuThing);
+		MenuThing.x = 320;
+		MenuThing.y = 300;
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);

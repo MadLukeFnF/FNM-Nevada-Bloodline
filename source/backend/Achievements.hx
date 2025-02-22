@@ -26,8 +26,6 @@ class Achievements {
 	public static function init()
 	{
 		createAchievement('friday_night_play',		{name: "Freaky on a Friday Night", description: "Play on a Friday... Night.", hidden: true});
-	}
-		
 		//dont delete this thing below
 		_originalLength = _sortID + 1;
 	}

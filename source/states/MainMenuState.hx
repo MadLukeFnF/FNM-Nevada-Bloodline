@@ -246,6 +246,7 @@ class MainMenuState extends MusicBeatState
 		
 		{
 		case 2:
+		
 			char = new FlxSprite(500, 500).loadGraphic(Paths.image('mainmenu/GF'));//Thanks to EIT for the tutorial
 			char.frames = Paths.getSparrowAtlas('mainmenu/GF');
 			char.animation.addByPrefix('Idle', 'Idle', framerate, true); //the bool value's for deciding if it loops or not

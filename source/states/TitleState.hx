@@ -891,6 +891,6 @@ class TitleState extends MusicBeatState
 	}
 	
 	function postCreate()
-	CoolUtil.playMusic(Paths.music("MenuMusic" + FlxG.random.int(1, 4), true);
+	CoolUtil.playMusic(Paths.music("MenuMusic" + FlxG.random.int(1, 4), true));
 	#end
 }

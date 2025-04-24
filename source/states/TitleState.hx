@@ -889,4 +889,5 @@ class TitleState extends MusicBeatState
 		FlxTween.tween(skipVideo, {alpha: 0}, 1, {ease: FlxEase.quadIn, startDelay: 4});
 	
 	}
+#end
 }

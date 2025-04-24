@@ -17,6 +17,7 @@ import states.editors.MasterEditorMenu;
 import options.OptionsState;
 import openfl.Lib;
 
+var char:FlxSprite;
 
 class MainMenuState extends MusicBeatState
 {
@@ -33,11 +34,12 @@ class MainMenuState extends MusicBeatState
 	var optionTween:Array<FlxTween> = [];
 	var selectedTween:Array<FlxTween> = [];
 	var cameraTween:Array<FlxTween> = [];
+	var logoTween:FlxTween;
 	
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-	//	#if MODS_ALLOWED 'mods', #end
+		#if MODS_ALLOWED 'mods', #end
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
 		//#if !switch 'donate', #end
@@ -45,6 +47,7 @@ class MainMenuState extends MusicBeatState
 	];
 
 	var magenta:FlxSprite;
+	var logoBl:FlxSprite;
 	var MenuThing:FlxSprite;
 	
     //var musicDisplay:SpectogramSprite;
@@ -117,14 +120,28 @@ class MainMenuState extends MusicBeatState
 		test.alpha = 0.7;
 
 		bg.scrollFactor.set(0, 0);
+					
+		logoBl = new FlxSprite(0, 0);
+		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
+		logoBl.antialiasing = ClientPrefs.data.antialiasing;
+		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
+		logoBl.animation.play('bump');
+		logoBl.offset.x = 0;
+		logoBl.offset.y = 0;
+		logoBl.scale.x = (640 / logoBl.frameWidth);
+		logoBl.scale.y = logoBl.scale.x;
+		logoBl.updateHitbox();
+		add(logoBl);
+		logoBl.scrollFactor.set(0, 0);
+		logoBl.x = 1280 + 320 - logoBl.width / 2;
+		logoBl.y = 360 - logoBl.height / 2;
+		logoTween = FlxTween.tween(logoBl, {x: 1280 - 320 - logoBl.width / 2 }, 0.6, {ease: FlxEase.backInOut});
 		
     var MenuThing:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('Vexter', null, false));
 		MenuThing.scrollFactor.set(0, 0);
 		MenuThing.updateHitbox();
 		MenuThing.antialiasing = ClientPrefs.data.antialiasing;
 		add(MenuThing);
-		MenuThing.x = 320;
-		MenuThing.y = 300;
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -213,6 +230,32 @@ class MainMenuState extends MusicBeatState
 		virtualPad.cameras = [camHUD];
         
 		super.create();
+		switch (FlxG.random.int(1, 2)) //You can change it with any number if there are more
+		{
+		case 1:
+			char = new FlxSprite(500, 500).loadGraphic(Paths.image('mainmenu/Boy'));//Thanks to EIT for the tutorial
+			char.frames = Paths.getSparrowAtlas('mainmenu/Boy');
+			char.animation.addByPrefix('Idle', 'Idle', framerate, true); //the bool value's for deciding if it loops or not
+			char.animation.play('Idle');
+			char.scrollFactor.set();
+			char.flipX = false; //You should have already animated it in the right position in Animate
+			char.antialiasing =ClientPrefs.globalAntialiasing;
+			FlxG.sound.play(Paths.sound('sound'), 2); //optional
+			add(char);
+		}
+		
+		{
+		case 2:
+			char = new FlxSprite(500, 500).loadGraphic(Paths.image('mainmenu/GF'));//Thanks to EIT for the tutorial
+			char.frames = Paths.getSparrowAtlas('mainmenu/GF');
+			char.animation.addByPrefix('Idle', 'Idle', framerate, true); //the bool value's for deciding if it loops or not
+			char.animation.play('Idle');
+			char.scrollFactor.set();
+			char.flipX = false; //You should have already animated it in the right position in Animate
+			char.antialiasing =ClientPrefs.globalAntialiasing;
+			FlxG.sound.play(Paths.sound('sound'), 2); //optional
+			add(char);
+		}
 	}
 	
 	var canClick:Bool = true;
@@ -347,6 +390,7 @@ class MainMenuState extends MusicBeatState
             currentColorAgain = currentColor - 1;
             if (currentColorAgain <= 0) currentColorAgain = 6;
             
+            logoBl.animation.play('bump');
                
 			camGame.zoom = 1 + 0.015;			
 			cameraTween[0] = FlxTween.tween(camGame, {zoom: 1}, 0.6, {ease: FlxEase.cubeOut});
@@ -414,6 +458,9 @@ class MainMenuState extends MusicBeatState
 				});													
 			}
 		});
+		
+		if (logoTween != null) logoTween.cancel();
+		logoTween = FlxTween.tween(logoBl, {x: 1280 + 320 - logoBl.width / 2 }, 0.6, {ease: FlxEase.backInOut});
 		
 		FlxTween.tween(camGame, {zoom: 2}, 1.2, {ease: FlxEase.cubeInOut});
 		FlxTween.tween(camHUD, {zoom: 2}, 1.2, {ease: FlxEase.cubeInOut});

@@ -287,7 +287,7 @@ class TitleState extends MusicBeatState
 		if (!initialized)
 		{
 			if(FlxG.sound.music == null && ClientPrefs.data.mainMusic == "None") {
-      FlxG.sound.playMusic(Paths.music("MenuMusic" + FlxG.random.int(1, 4), 1));
+      FlxG.sound.playMusic(Paths.music("MenuMusic" + FlxG.random.int(1, 4)));
 			}else{
 				if(ClientPrefs.data.mainMusic != 'freakyMenu'){
 				    FlxG.sound.playMusic(Paths.music("Main Screen/" + ClientPrefs.data.mainMusic), 0);
@@ -683,7 +683,7 @@ class TitleState extends MusicBeatState
 			{
 				case 1:
 					//FlxG.sound.music.stop();
-        FlxG.sound.playMusic(Paths.music("MenuMusic" + FlxG.random.int(1, 4), 0));
+        FlxG.sound.playMusic(Paths.music("MenuMusic" + FlxG.random.int(1, 4)));
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
 					#if PSYCH_WATERMARKS
@@ -761,7 +761,7 @@ class TitleState extends MusicBeatState
 						skippedIntro = true;
 						playJingle = false;
 
-            FlxG.sound.playMusic(Paths.music("MenuMusic" + FlxG.random.int(1, 4), 0));
+            FlxG.sound.playMusic(Paths.music("MenuMusic" + FlxG.random.int(1, 4)));
 						FlxG.sound.music.fadeIn(4, 0, 0.7);
 						return;
 				}

@@ -889,5 +889,8 @@ class TitleState extends MusicBeatState
 		FlxTween.tween(skipVideo, {alpha: 0}, 1, {ease: FlxEase.quadIn, startDelay: 4});
 	
 	}
+	
+	function postCreate()
+	CoolUtil.playMusic(Paths.music("MenuMusic" + FlxG.random.int(1, 4), true);
 	#end
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Boy.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="Idle_202503171436010000" x="0" y="1713" width="814" height="829" frameX="-381" frameY="-124" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503171436040000" x="803" y="859" width="811" height="838" frameX="-387" frameY="-115" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503171436060000" x="1600" y="0" width="808" height="849" frameX="-394" frameY="-104" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503171436090000" x="0" y="859" width="803" height="854" frameX="-398" frameY="-99" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503171436110000" x="0" y="0" width="801" height="859" frameX="-398" frameY="-94" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503171436140000" x="801" y="0" width="799" height="859" frameX="-398" frameY="-94" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503171436170000" x="2408" y="0" width="797" height="859" frameX="-398" frameY="-94" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503171436190000" x="2408" y="0" width="797" height="859" frameX="-398" frameY="-94" frameWidth="1280" frameHeight="960"/>
+</TextureAtlas>

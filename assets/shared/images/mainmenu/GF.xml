@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="GF.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="Idle_202503301818340000" x="2059" y="1828" width="1013" height="915" frameX="-158" frameY="-32" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301818360000" x="1044" y="914" width="1042" height="914" frameX="-141" frameY="-33" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301818380000" x="0" y="914" width="1044" height="914" frameX="-136" frameY="-33" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301818400000" x="0" y="1828" width="1032" height="917" frameX="-146" frameY="-30" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301818420000" x="3133" y="0" width="998" height="919" frameX="-169" frameY="-28" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301818450000" x="959" y="2745" width="963" height="920" frameX="-191" frameY="-27" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301818470000" x="4131" y="1851" width="945" height="919" frameX="-199" frameY="-28" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301818490000" x="0" y="3672" width="941" height="922" frameX="-200" frameY="-25" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301818520000" x="1032" y="1828" width="1027" height="915" frameX="-178" frameY="-32" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301818540000" x="1051" y="0" width="1053" height="910" frameX="-163" frameY="-37" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301818570000" x="0" y="0" width="1051" height="914" frameX="-158" frameY="-33" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301818590000" x="2104" y="0" width="1029" height="921" frameX="-162" frameY="-26" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301819010000" x="3133" y="919" width="978" height="924" frameX="-182" frameY="-23" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301819040000" x="0" y="2745" width="959" height="927" frameX="-193" frameY="-20" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301819060000" x="4131" y="0" width="949" height="926" frameX="-196" frameY="-21" frameWidth="1280" frameHeight="960"/>
+	<SubTexture name="Idle_202503301819080000" x="4131" y="926" width="941" height="925" frameX="-200" frameY="-22" frameWidth="1280" frameHeight="960"/>
+</TextureAtlas>
